@@ -1,17 +1,22 @@
-import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import React, { useContext } from 'react';
+import { View, Image, Text, StyleSheet } from 'react-native';
+import themeContext from './theme/themeContext';
 
 const Header = () => {
+  const theme = useContext(themeContext);
+
   return (
     <View style={styles.headerContainer}>
       <View style={styles.profileTextContainer}>
         <Image source={require('../assets/profile.png')} style={styles.profileImage} />
         <View style={styles.textContainer}>
-          <Text style={styles.welcomeText}>Welcome back,</Text>
-          <Text style={styles.userName}>Eric Atsu</Text>
+          <Text style={[styles.welcomeText, { color: theme.color }]}>Welcome back,</Text>
+          <Text style={[styles.userName, { color: theme.color }]}>Eric Atsu</Text>
         </View>
       </View>
-      <Image source={require('../assets/search.png')} style={styles.searchIcon} />
+      <View style={[styles.searchButton, { backgroundColor: theme.buttonBackground }]}>
+        <Image source={require('../assets/search.png')} style={[styles.searchIcon, { tintColor: theme.color }]} />
+      </View>
     </View>
   );
 };
@@ -30,19 +35,26 @@ const styles = StyleSheet.create({
   },
   textContainer: {
     flexDirection: 'column',
-    marginLeft: 8, // Add some space between the profile image and text
+    marginLeft: 8,
   },
   welcomeText: {
     fontSize: 18,
-    color: '#777',
   },
   userName: {
     fontSize: 24,
     fontWeight: 'bold',
   },
+  searchButton: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 10,
+    borderRadius: 29,
+    width: 42,
+    height: 42,
+  },
   searchIcon: {
-    width: 30,
-    height: 30,
+    width: 24,
+    height: 24,
   },
   profileImage: {
     width: 53,
