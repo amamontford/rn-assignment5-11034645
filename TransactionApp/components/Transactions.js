@@ -83,8 +83,8 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   transactionIcon: {
-    width: 24, // Reduced size
-    height: 24, // Reduced size
+    width: 24, 
+    height: 24, 
   },
   transactionDetails: {
     flex: 1,

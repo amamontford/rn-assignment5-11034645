@@ -57,7 +57,7 @@ const App = () => {
             tabBarStyle: {
               backgroundColor: currentTheme.tabBarBackground,
             },
-            tabBarActiveTintColor: 'blue',  // Ensuring active tab icon color is blue
+            tabBarActiveTintColor: 'blue',  
             tabBarInactiveTintColor: currentTheme.tabBarInactiveTintColor,
           })}
         >
